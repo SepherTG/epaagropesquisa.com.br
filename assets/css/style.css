@@ -776,7 +776,7 @@ input:focus {
     .header-v1 .header .logo, .header-v2 .header .logo, .header-v3 .header .logo, .header-v5 .header .logo, .header-v4 .header .logo {
       display: flex;
       align-items: center;
-      height: 105px; }
+      height: 70px; }
       .header-v1 .header .logo a, .header-v2 .header .logo a, .header-v3 .header .logo a, .header-v5 .header .logo a, .header-v4 .header .logo a {
         display: inline-block; }
         .header-v1 .header .logo a img, .header-v2 .header .logo a img, .header-v3 .header .logo a img, .header-v5 .header .logo a img, .header-v4 .header .logo a img {
@@ -858,7 +858,7 @@ input:focus {
         color: #202020;
         display: inline-block;
         padding: 0 25px;
-        line-height: 105px;
+        line-height: 70px;
         position: relative; }
         .header-v1 .header .main-menu li a span, .header-v2 .header .main-menu li a span, .header-v3 .header .main-menu li a span, .header-v5 .header .main-menu li a span, .header-v4 .header .main-menu li a span {
           margin-top: -11px;
