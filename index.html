@@ -952,16 +952,6 @@
     <script type="text/javascript" src="./assets/plugins/photoswipe/photoswipe.js"></script>
     <script type="text/javascript" src="./assets/plugins/photoswipe/photoswipe-ui-default.js"></script>
     <script>
-      // Impede que o PhotoSwipe tente abrir o link do vídeo
-      document.addEventListener('click', function (e) {
-        const a = e.target.closest('a');
-        if (!a) return;
-        if (a.classList.contains('no-pswp') || /\.mp4(\?|$)/i.test(a.getAttribute('href') || '')) {
-          e.stopPropagation(); // não deixa o lightbox capturar
-        }
-      }, true);
-    </script>
-    <script>
 
         //***********
         //Google Maps
