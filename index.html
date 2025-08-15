@@ -31,6 +31,7 @@
     <!-- Css Adicionais -->
     <link rel="stylesheet" type="text/css" href="./assets/plugins/photoswipe/photoswipe.css" />
     <link rel="stylesheet" type="text/css" href="./assets/plugins/photoswipe/default-skin/default-skin.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
 </head>
 
 <body>
@@ -502,17 +503,21 @@
                           <img class="mosaic" src="./img/IMG_5820.PNG">
                         </figure>
                       </div>
-                    <div class="box garden-overlay-scale">
-                      <figure>
-                        <div class="garden-overlay">
-                          <h3><i class="fa fa-play"></i></h3>
+                        <!-- Card de VÍDEO com GLightbox (overlay e play) -->
+                        <div class="box garden-overlay-scale">
+                          <figure style="position:relative">
+                            <a href="./img/1234.mp4"
+                               class="glightbox-video"
+                               data-type="video"
+                               data-gallery="galeria"
+                               data-title="Vídeo 1234">
+                              <img class="mosaic" src="./img/thumb-video-1234.jpg" alt="Vídeo 1234">
+                              <div class="garden-overlay">
+                                <h3><i class="fa fa-play"></i></h3>
+                              </div>
+                            </a>
+                          </figure>
                         </div>
-                        <video class="mosaic" controls preload="metadata" style="width:100%; height:auto;">
-                          <source src="./img/IMG_5848.MP4" type="video/mp4">
-                          Seu navegador não suporta vídeos.
-                        </video>
-                      </figure>
-                    </div>
                     </li>
 
                 </ul>
@@ -1080,6 +1085,20 @@
         </div>
 
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script>
+  // Inicializa o GLightbox só para o vídeo
+  const videoLightbox = GLightbox({
+    selector: 'a.glightbox-video',
+    autoplayVideos: true
+  });
+
+  // Garante que o PhotoSwipe não capture o clique do vídeo
+  document.addEventListener('click', function (e) {
+    const a = e.target.closest('a.glightbox-video');
+    if (a) { e.stopPropagation(); }
+  }, true);
+</script>
 </body>
 
 </html>
