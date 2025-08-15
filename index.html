@@ -503,21 +503,23 @@
                           <img class="mosaic" src="./img/IMG_5820.PNG">
                         </figure>
                       </div>
-                        <!-- Card de VÍDEO com GLightbox (overlay e play) -->
-                        <div class="box garden-overlay-scale">
-                          <figure style="position:relative">
-                            <a href="./img/1234.mp4"
-                               class="glightbox-video"
-                               data-type="video"
-                               data-gallery="galeria"
-                               data-title="Vídeo 1234">
-                              <img class="mosaic" src="./img/thumb-video-1234.jpg" alt="Vídeo 1234">
-                              <div class="garden-overlay">
-                                <h3><i class="fa fa-play"></i></h3>
-                              </div>
-                            </a>
-                          </figure>
-                        </div>
+<!-- Card de VÍDEO com GLightbox (overlay e play) -->
+<div class="box garden-overlay-scale">
+  <figure style="position:relative">
+    <a href="./img/1234.mp4"
+       class="glightbox"
+       data-type="video"
+       data-gallery="galeria"
+       data-title="Vídeo 1234"
+       data-autoplay="true">
+      <img class="mosaic" src="./img/thumb-video-1234.jpg" alt="Vídeo 1234">
+      <div class="garden-overlay">
+        <h3><i class="fa fa-play"></i></h3>
+      </div>
+    </a>
+  </figure>
+</div>
+
                     </li>
 
                 </ul>
@@ -1085,17 +1087,19 @@
         </div>
 
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 <script>
-  // Inicializa o GLightbox só para o vídeo
+  // Inicializa GLightbox para qualquer <a class="glightbox">
   const videoLightbox = GLightbox({
-    selector: 'a.glightbox-video',
-    autoplayVideos: true
+    selector: 'a.glightbox',
+    autoplayVideos: true,
+    touchNavigation: true,
+    videosWidth: '960px'
   });
 
-  // Garante que o PhotoSwipe não capture o clique do vídeo
+  // Evita que o PhotoSwipe capture o clique desses links
   document.addEventListener('click', function (e) {
-    const a = e.target.closest('a.glightbox-video');
+    const a = e.target.closest('a.glightbox');
     if (a) { e.stopPropagation(); }
   }, true);
 </script>
