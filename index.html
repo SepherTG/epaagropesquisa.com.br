@@ -1103,6 +1103,15 @@
     if (a) { e.stopPropagation(); }
   }, true);
 </script>
+<script>
+  // Se por algum motivo o overlay não abrir, evita navegação direta
+  document.querySelectorAll('a.glightbox').forEach(a => {
+    a.addEventListener('click', function (e) {
+      // Se o GLightbox estiver carregado, previne a navegação
+      if (window.GLightbox) e.preventDefault();
+    });
+  });
+</script>
 </body>
 
 </html>
