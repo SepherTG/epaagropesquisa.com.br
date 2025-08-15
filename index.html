@@ -502,17 +502,17 @@
                           <img class="mosaic" src="./img/IMG_5820.PNG">
                         </figure>
                       </div>
-                   <!-- Card para vídeo -->
+                        <!-- Card para vídeo (abre fora do lightbox) -->
                         <div class="box garden-overlay-scale">
                           <figure>
                             <div class="garden-overlay">
-                              <!-- ABRIR FORA DO PHOTOSWIPE -->
-                              <a href="./img/IMG_5848.MP4" target="_blank" rel="noopener" class="no-pswp">
+                              <!-- abre em nova aba e marcamos com class no-pswp -->
+                              <a href="./img/1234.mp4" target="_blank" rel="noopener" class="no-pswp">
                                 <h3><i class="fa fa-play"></i></h3>
                               </a>
                             </div>
-                            <!-- Thumbnail do vídeo -->
-                            <img class="mosaic" src="./img/thumb-video-5848.jpg" alt="Vídeo IMG_5848">
+                            <!-- thumbnail do vídeo -->
+                            <img class="mosaic" src="./img/thumb-video-1234.jpg" alt="Vídeo IMG_5848">
                           </figure>
                         </div>
                     </li>
@@ -953,6 +953,16 @@
     <script type="text/javascript" src="./assets/js/photoswipe_custom.js"></script>
     <script type="text/javascript" src="./assets/plugins/photoswipe/photoswipe.js"></script>
     <script type="text/javascript" src="./assets/plugins/photoswipe/photoswipe-ui-default.js"></script>
+    <script>
+      // Impede que o PhotoSwipe tente abrir o link do vídeo
+      document.addEventListener('click', function (e) {
+        const a = e.target.closest('a');
+        if (!a) return;
+        if (a.classList.contains('no-pswp') || /\.mp4(\?|$)/i.test(a.getAttribute('href') || '')) {
+          e.stopPropagation(); // não deixa o lightbox capturar
+        }
+      }, true);
+    </script>
     <script>
 
         //***********
